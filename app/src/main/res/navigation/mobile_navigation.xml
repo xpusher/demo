@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.demo.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.demo.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow"
+        >
+        <action
+            android:id="@+id/action_nav_slideshow_self"
+            app:destination="@id/nav_slideshow"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow_request"
+        android:name="com.demo.ui.slideshow.SlideshowRequestFragment"
+        android:label="@string/menu_slideshow_request"
+        tools:layout="@layout/fragment_slideshow_request"
+        >
+    </fragment>
+    <fragment
+        android:id="@+id/nav_error"
+        android:name="com.demo.ui.common.ErrorFragment"
+        android:label="@string/menu_error"
+        tools:layout="@layout/fragment_error"
+        >
+        <action
+            android:id="@+id/action_nav_error_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@+id/mobile_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_empty_content"
+        android:name="com.demo.ui.common.EmptyContentFragment"
+        android:label="@string/menu_empty"
+        tools:layout="@layout/fragment_empty_content"
+        >
+        <action
+            android:id="@+id/action_nav_empty_content_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@+id/mobile_navigation" />
+    </fragment>
+
+
+</navigation>
